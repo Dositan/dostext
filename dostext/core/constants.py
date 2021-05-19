@@ -1,5 +1,5 @@
 # For file management.
-FILETYPES=(
+FILETYPES = (
     ('Text Files', '*.txt'),
     ('Python Files', '*.py'),
     ('All Files', '*.*')

@@ -7,6 +7,10 @@ __all__ = ('CustomFrame',)
 
 
 class CustomFrame(tkinter.Frame):
+    """The heart class of this application, subclassed from `tkinter.Frame`.
+
+    This class makes our app working and provides the logic."""
+
     def __init__(self, root: tkinter.Tk, **kwargs):
         super().__init__(root)
         self.root = root
@@ -21,12 +25,19 @@ class CustomFrame(tkinter.Frame):
         self.setup()
 
     def setup(self):
+        """
+        The main setup method that controls generally everything.
+        GUI menu, texting, editing - all stuff is called here.
+        """
         self._set_textbox()
         self._set_status_bar()
         self._set_bindings()
         self._set_menu()
 
     def _set_textbox(self):
+        """
+        The method to set up textbox (the place where you type).
+        """
         self.scrollbar = tkinter.Scrollbar(self)
         self.scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 
@@ -49,18 +60,34 @@ class CustomFrame(tkinter.Frame):
         self.textbox.pack()
 
     def _set_status_bar(self):
+        """
+        The method to set up the status bar which is located in the right bottom.
+        """
         self.status_bar = tkinter.Label(self.root, text='Ready\t\t', anchor=tkinter.E)
 
         # Packing on the final stage.
         self.status_bar.pack(fill=tkinter.X, side=tkinter.BOTTOM, ipady=5)
 
     def _set_bindings(self):
+        """
+        Setting up some necessary keybindings to ease up manipulation
+        and avoiding some possible clipboard conflicts.
+        """
         # Editing bindings to avoid copied text conflicts.
         self.root.bind('<Control-x>', self.editor.cut_text)
         self.root.bind('<Control-c>', self.editor.copy_text)
         self.root.bind('<Control-v>', self.editor.paste_text)
 
     def _set_menu(self):
+        """
+        The method where anything, related to menu is executed and controlled.
+
+        I would separate each part, but that try caused so many exceptions so I
+        considered leaving them together.
+        
+        There are some useful comments that you can read and learn more about
+        this application.
+        """
         # Initializing the main menu.
         self.main_menu = tkinter.Menu(self.root)
 

@@ -8,5 +8,8 @@ __all__ = ('load_config',)
 # Sooner, when we'll have to deal with bigger requirements,
 # this is going to help us a lot to ease up manipulation.
 def load_config(path: str = 'dostext/data/config.json'):
+    """
+    A simple method that loads the configuration file and prepares us a dictionary.
+    """
     with open(path, 'r') as fp:
         return json.load(fp)

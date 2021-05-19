@@ -10,11 +10,18 @@ selected = False
 
 
 class Editor:
+    """The editor class that is used in manipulating with GUI interface."""
+
     def __init__(self, frame: 'CustomFrame'):
         self.frame = frame
         self.root = frame.root
 
     def cut_text(self, event):
+        """The cutting method to be able to manipulate through the GUI.
+
+        Args:
+            event: Simply, the keyboard shortcut (CTRL-X in this case).
+        """
         global selected
 
         # Check to see if the keyboard shortcut was used.
@@ -32,6 +39,11 @@ class Editor:
             self.root.clipboard_append(selected)
 
     def copy_text(self, event):
+        """The copying method to be able to manipulate through the GUI.
+
+        Args:
+            event: Simply, the keyboard shortcut (CTRL-C in this case).
+        """
         global selected
 
         # Check if we really used the keyboard shortcut.
@@ -46,6 +58,11 @@ class Editor:
             self.root.clipboard_append(selected)
 
     def paste_text(self, event):
+        """The pasting method to be able to manipulate through the GUI.
+
+        Args:
+            event: Simply, the keyboard shortcut (CTRL-V in this case).
+        """
         global selected
 
         # Check to see if the keyboard shortcut was used.
