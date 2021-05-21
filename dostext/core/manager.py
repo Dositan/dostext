@@ -100,7 +100,7 @@ class FileManager:
     def save_as_file(self):
         """
         A method that helps us saving a new file, simply adds the logic.
-        """        
+        """
         text_file = filedialog.asksaveasfilename(
             defaultextension='.*', initialdir='.', title='Save File', filetypes=FILETYPES
         )

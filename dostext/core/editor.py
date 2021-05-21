@@ -1,10 +1,11 @@
-from tkinter import INSERT
+from tkinter import INSERT, font, colorchooser
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .frame import CustomFrame
 
 __all__ = ('Editor',)
+
 global selected
 selected = False
 
@@ -73,3 +74,71 @@ class Editor:
         if selected:
             position = self.frame.textbox.index(INSERT)
             self.frame.textbox.insert(position, selected)
+
+    def bolderize_text(self):
+        """
+        The method to bolderize the selected text.
+        """
+        # Creating the font.
+        text = self.frame.textbox
+        bold_font = font.Font(text, text.cget('font'))
+        bold_font.configure(weight='bold')
+
+        # Configure the tag.
+        text.tag_configure('bold', font=bold_font)
+
+        # Checking if the tag has been set.
+        if 'bold' in text.tag_names('sel.first'):
+            return text.tag_remove('bold', 'sel.first', 'sel.last')
+
+        text.tag_add('bold', 'sel.first', 'sel.last')
+
+    def italicize_text(self):
+        """
+        The method to italicize the selected text.
+        """
+        # Creating the font.
+        text = self.frame.textbox
+        italic_font = font.Font(text, text.cget('font'))
+        italic_font.configure(slant='italic')
+
+        # Configure the tag.
+        text.tag_configure('italic', font=italic_font)
+
+        # Checking if the tag has been set.
+        if 'italic' in text.tag_names('sel.first'):
+            return text.tag_remove('italic', 'sel.first', 'sel.last')
+
+        text.tag_add('italic', 'sel.first', 'sel.last')
+
+    def text_color(self):
+        """
+        Change the color of the selected text (by cursor).
+        """
+        if color := colorchooser.askcolor()[1]:
+            # Creating the font.
+            text = self.frame.textbox
+            color_font = font.Font(text, text.cget('font'))
+
+            # Configure the tag.
+            text.tag_configure('colored', font=color_font, foreground=color)
+
+            # Checking if the tag has been set.
+            if 'colored' in text.tag_names('sel.first'):
+                return text.tag_remove('colored', 'sel.first', 'sel.last')
+
+            text.tag_add('colored', 'sel.first', 'sel.last')
+
+    def all_text_color(self):
+        """
+        Replace all of the written text with another color (default text color is black).
+        """
+        if color := colorchooser.askcolor()[1]:
+            self.frame.textbox.config(fg=color)
+
+    def bg_color(self):
+        """
+        Basically, sets the background color according to the user's choice.
+        """
+        if color := colorchooser.askcolor()[1]:
+            self.frame.textbox.config(bg=color)
