@@ -1,10 +1,33 @@
-# DosText: The code editor of the future.
-### How to use DosText?
-The application is really easy to understand since it is written in style like Windows Notepad.
+# DosText: code editor of the future.
+
+### Dostext is:
+- Lightweight
+- No dependencies
+- Simple
+- Just type
+
+---
+
+### Running
+Clone the repository:
+
+    $ git clone github.com/Dositan/dostext.git
+
+Change directory:
+
+    $ cd dostext
+
+Run:
+
+    $ python -m dostext
+
+---
 
 ### Plans
-I am planning to create a great code|text editor to be able to manage my coding projects only there.
-Creating GUI's is such an awesome experience, this requires patience also.
-
-### How can I run it on my own?
-This is really simple. Download or clone the repository, navigate to the project folder (`cd dostext`) and run as a module (`python -m dostext`), and you are ready to go.
+- [ ] Better styling:
+    - [ ] Avoid "\t\t"
+- [ ] More futures:
+    - [ ] File extensions
+    - [ ] Resizable window
+    - [ ] Code completion
+    - [ ] Code highlight
