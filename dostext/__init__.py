@@ -1,4 +1,2 @@
-from .core import *  # noqa
-
-__version__ = '0.0.3'
+__version__ = (0, 1, 0, "dev")
 __author__ = ('Dastan Ozgeldi', 'ozgdastan@gmail.com')

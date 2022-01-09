@@ -1,16 +1,18 @@
 from tkinter import Tk
 
-from dostext.core import CustomFrame, load_config
+from .frame import CustomFrame
+from .settings import RESOLUTION, TITLE
 
 
 def main():
     """The heart of this application."""
-    config = load_config()
+    # App root setup
     root = Tk()
-    root.title(config['app'])
-    root.geometry(config['resolution'])
+    root.title(TITLE)
+    root.geometry(RESOLUTION)
 
-    frame = CustomFrame(root, config=config)
+    # Window frame setup
+    frame = CustomFrame(root)
     frame.pack(pady=5)
 
     # Booting up the GUI
