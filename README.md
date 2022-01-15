@@ -19,7 +19,7 @@ Change directory:
 
 Run:
 
-    $ python -m dostext
+    $ python -m app
 
 ---
 
