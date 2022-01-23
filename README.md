@@ -8,7 +8,10 @@
 
 ---
 
+[Code written with DosText](./sample.py)
+
 ### Running
+**NOTE**: features such as bold, italicize and text color don't get written in a file 
 Clone the repository:
 
     $ git clone github.com/Dositan/dostext.git
