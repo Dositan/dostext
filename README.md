@@ -29,8 +29,8 @@ Run:
 ### Plans
 - [ ] Better styling:
     - [ ] Avoid "\t\t"
-- [ ] More futures:
-    - [ ] File extensions
-    - [ ] Resizable window
+- [ ] More features:
+    - [x] File extensions
+    - [x] Resizable window
     - [ ] Code completion
     - [ ] Code highlight
